@@ -85,5 +85,42 @@ add_subdirectory(math) // 添加子库
 add_executable(cmake cmake.cpp) // 生成可执行文件
 ```
 
+## 2、运行cmake项目
+
+### 2.1 src文件夹
+
+src/cmake.cpp
+
+```c++
+#include<iostream>
+
+int main(int argc,const char* argv[]){
+    
+    std::cout << "hello world!" << std::endl;
+
+    return 0;
+}
+```
+
+src/CMakeLists.txt
+
+```cmake
+cmake_minimum_required(VERSION 3.25)
+
+add_subdirectory(math)
+
+add_executable(main cmake.cpp)
+add_executable(main2 cmake.cpp)
+```
+
+执行
+
+![image-20230425012231555](https://test-123456-md-images.oss-cn-beijing.aliyuncs.com/img/image-20230425012231555.png)
 
 
+
+![image-20230425012324981](https://test-123456-md-images.oss-cn-beijing.aliyuncs.com/img/image-20230425012324981.png)
+
+### 2.2 调试
+
+![image-20230425012511410](https://test-123456-md-images.oss-cn-beijing.aliyuncs.com/img/image-20230425012511410.png)
