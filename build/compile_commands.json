@@ -1,0 +1,20 @@
+[
+{
+  "directory": "D:/Desktop/github/camke-doc/build/src",
+  "command": "D:\\MinGw64\\bin\\g++.exe   -g -o CMakeFiles\\main.dir\\cmake.cpp.obj -c D:\\Desktop\\github\\camke-doc\\src\\cmake.cpp",
+  "file": "D:/Desktop/github/camke-doc/src/cmake.cpp",
+  "output": "src/CMakeFiles/main.dir/cmake.cpp.obj"
+},
+{
+  "directory": "D:/Desktop/github/camke-doc/build/src",
+  "command": "D:\\MinGw64\\bin\\g++.exe   -g -o CMakeFiles\\main2.dir\\cmake.cpp.obj -c D:\\Desktop\\github\\camke-doc\\src\\cmake.cpp",
+  "file": "D:/Desktop/github/camke-doc/src/cmake.cpp",
+  "output": "src/CMakeFiles/main2.dir/cmake.cpp.obj"
+},
+{
+  "directory": "D:/Desktop/github/camke-doc/build/src/math",
+  "command": "D:\\MinGw64\\bin\\g++.exe   -g -o CMakeFiles\\math.dir\\math.cpp.obj -c D:\\Desktop\\github\\camke-doc\\src\\math\\math.cpp",
+  "file": "D:/Desktop/github/camke-doc/src/math/math.cpp",
+  "output": "src/math/CMakeFiles/math.dir/math.cpp.obj"
+}
+]

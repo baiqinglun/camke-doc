@@ -1,5 +1,6 @@
-cmake_minimum_required(VERSION 3.25 FATAL_ERROE)
+cmake_minimum_required(VERSION 3.25)
 
 add_subdirectory(math)
 
-add_executable(cmake cmake.cpp)
+add_executable(main cmake.cpp)
+add_executable(main2 cmake.cpp)
