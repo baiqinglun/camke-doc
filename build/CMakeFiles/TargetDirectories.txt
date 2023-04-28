@@ -1,9 +1,8 @@
-D:/Desktop/github/camke-doc/build/CMakeFiles/edit_cache.dir
-D:/Desktop/github/camke-doc/build/CMakeFiles/rebuild_cache.dir
-D:/Desktop/github/camke-doc/build/src/CMakeFiles/main.dir
-D:/Desktop/github/camke-doc/build/src/CMakeFiles/main2.dir
-D:/Desktop/github/camke-doc/build/src/CMakeFiles/edit_cache.dir
-D:/Desktop/github/camke-doc/build/src/CMakeFiles/rebuild_cache.dir
-D:/Desktop/github/camke-doc/build/src/math/CMakeFiles/math.dir
-D:/Desktop/github/camke-doc/build/src/math/CMakeFiles/edit_cache.dir
-D:/Desktop/github/camke-doc/build/src/math/CMakeFiles/rebuild_cache.dir
+D:/Desktop/github/camke-doc-1/build/CMakeFiles/edit_cache.dir
+D:/Desktop/github/camke-doc-1/build/CMakeFiles/rebuild_cache.dir
+D:/Desktop/github/camke-doc-1/build/src/CMakeFiles/main.dir
+D:/Desktop/github/camke-doc-1/build/src/CMakeFiles/edit_cache.dir
+D:/Desktop/github/camke-doc-1/build/src/CMakeFiles/rebuild_cache.dir
+D:/Desktop/github/camke-doc-1/build/src/math/CMakeFiles/math.dir
+D:/Desktop/github/camke-doc-1/build/src/math/CMakeFiles/edit_cache.dir
+D:/Desktop/github/camke-doc-1/build/src/math/CMakeFiles/rebuild_cache.dir

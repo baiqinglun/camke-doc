@@ -24,12 +24,12 @@ set(CMAKE_MAKEFILE_DEPENDS
   "D:/CMake/share/cmake-3.26/Modules/Platform/Windows-windres.cmake"
   "D:/CMake/share/cmake-3.26/Modules/Platform/Windows.cmake"
   "D:/CMake/share/cmake-3.26/Modules/Platform/WindowsPaths.cmake"
-  "D:/Desktop/github/camke-doc/CMakeLists.txt"
+  "D:/Desktop/github/camke-doc-1/CMakeLists.txt"
   "CMakeFiles/3.26.0-rc1/CMakeCXXCompiler.cmake"
   "CMakeFiles/3.26.0-rc1/CMakeRCCompiler.cmake"
   "CMakeFiles/3.26.0-rc1/CMakeSystem.cmake"
-  "D:/Desktop/github/camke-doc/src/CMakeLists.txt"
-  "D:/Desktop/github/camke-doc/src/math/CMakeLists.txt"
+  "D:/Desktop/github/camke-doc-1/src/CMakeLists.txt"
+  "D:/Desktop/github/camke-doc-1/src/math/CMakeLists.txt"
   )
 
 # The corresponding makefile is:
@@ -48,6 +48,5 @@ set(CMAKE_MAKEFILE_PRODUCTS
 # Dependency information for all targets:
 set(CMAKE_DEPEND_INFO_FILES
   "src/CMakeFiles/main.dir/DependInfo.cmake"
-  "src/CMakeFiles/main2.dir/DependInfo.cmake"
   "src/math/CMakeFiles/math.dir/DependInfo.cmake"
   )

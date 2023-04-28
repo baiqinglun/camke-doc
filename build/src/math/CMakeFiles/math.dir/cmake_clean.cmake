@@ -1,7 +1,9 @@
 file(REMOVE_RECURSE
   "CMakeFiles/math.dir/math.cpp.obj"
   "CMakeFiles/math.dir/math.cpp.obj.d"
-  "libmath.a"
+  "libmath.dll"
+  "libmath.dll.a"
+  "libmath.dll.manifest"
   "libmath.pdb"
 )
 

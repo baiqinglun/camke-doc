@@ -56,10 +56,10 @@ RM = D:\CMake\bin\cmake.exe -E rm -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = D:\Desktop\github\camke-doc
+CMAKE_SOURCE_DIR = D:\Desktop\github\camke-doc-1
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = D:\Desktop\github\camke-doc\build
+CMAKE_BINARY_DIR = D:\Desktop\github\camke-doc-1\build
 
 #=============================================================================
 # Targets provided globally by CMake.
@@ -86,14 +86,14 @@ rebuild_cache/fast: rebuild_cache
 
 # The main all target
 all: cmake_check_build_system
-	cd /d D:\Desktop\github\camke-doc\build && $(CMAKE_COMMAND) -E cmake_progress_start D:\Desktop\github\camke-doc\build\CMakeFiles D:\Desktop\github\camke-doc\build\src\\CMakeFiles\progress.marks
-	cd /d D:\Desktop\github\camke-doc\build && $(MAKE) $(MAKESILENT) -f CMakeFiles\Makefile2 src/all
-	$(CMAKE_COMMAND) -E cmake_progress_start D:\Desktop\github\camke-doc\build\CMakeFiles 0
+	cd /d D:\Desktop\github\camke-doc-1\build && $(CMAKE_COMMAND) -E cmake_progress_start D:\Desktop\github\camke-doc-1\build\CMakeFiles D:\Desktop\github\camke-doc-1\build\src\\CMakeFiles\progress.marks
+	cd /d D:\Desktop\github\camke-doc-1\build && $(MAKE) $(MAKESILENT) -f CMakeFiles\Makefile2 src/all
+	$(CMAKE_COMMAND) -E cmake_progress_start D:\Desktop\github\camke-doc-1\build\CMakeFiles 0
 .PHONY : all
 
 # The main clean target
 clean:
-	cd /d D:\Desktop\github\camke-doc\build && $(MAKE) $(MAKESILENT) -f CMakeFiles\Makefile2 src/clean
+	cd /d D:\Desktop\github\camke-doc-1\build && $(MAKE) $(MAKESILENT) -f CMakeFiles\Makefile2 src/clean
 .PHONY : clean
 
 # The main clean target
@@ -102,22 +102,22 @@ clean/fast: clean
 
 # Prepare targets for installation.
 preinstall: all
-	cd /d D:\Desktop\github\camke-doc\build && $(MAKE) $(MAKESILENT) -f CMakeFiles\Makefile2 src/preinstall
+	cd /d D:\Desktop\github\camke-doc-1\build && $(MAKE) $(MAKESILENT) -f CMakeFiles\Makefile2 src/preinstall
 .PHONY : preinstall
 
 # Prepare targets for installation.
 preinstall/fast:
-	cd /d D:\Desktop\github\camke-doc\build && $(MAKE) $(MAKESILENT) -f CMakeFiles\Makefile2 src/preinstall
+	cd /d D:\Desktop\github\camke-doc-1\build && $(MAKE) $(MAKESILENT) -f CMakeFiles\Makefile2 src/preinstall
 .PHONY : preinstall/fast
 
 # clear depends
 depend:
-	cd /d D:\Desktop\github\camke-doc\build && $(CMAKE_COMMAND) -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles\Makefile.cmake 1
+	cd /d D:\Desktop\github\camke-doc-1\build && $(CMAKE_COMMAND) -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles\Makefile.cmake 1
 .PHONY : depend
 
 # Convenience name for target.
 src/CMakeFiles/main.dir/rule:
-	cd /d D:\Desktop\github\camke-doc\build && $(MAKE) $(MAKESILENT) -f CMakeFiles\Makefile2 src/CMakeFiles/main.dir/rule
+	cd /d D:\Desktop\github\camke-doc-1\build && $(MAKE) $(MAKESILENT) -f CMakeFiles\Makefile2 src/CMakeFiles/main.dir/rule
 .PHONY : src/CMakeFiles/main.dir/rule
 
 # Convenience name for target.
@@ -126,30 +126,15 @@ main: src/CMakeFiles/main.dir/rule
 
 # fast build rule for target.
 main/fast:
-	cd /d D:\Desktop\github\camke-doc\build && $(MAKE) $(MAKESILENT) -f src\CMakeFiles\main.dir\build.make src/CMakeFiles/main.dir/build
+	cd /d D:\Desktop\github\camke-doc-1\build && $(MAKE) $(MAKESILENT) -f src\CMakeFiles\main.dir\build.make src/CMakeFiles/main.dir/build
 .PHONY : main/fast
-
-# Convenience name for target.
-src/CMakeFiles/main2.dir/rule:
-	cd /d D:\Desktop\github\camke-doc\build && $(MAKE) $(MAKESILENT) -f CMakeFiles\Makefile2 src/CMakeFiles/main2.dir/rule
-.PHONY : src/CMakeFiles/main2.dir/rule
-
-# Convenience name for target.
-main2: src/CMakeFiles/main2.dir/rule
-.PHONY : main2
-
-# fast build rule for target.
-main2/fast:
-	cd /d D:\Desktop\github\camke-doc\build && $(MAKE) $(MAKESILENT) -f src\CMakeFiles\main2.dir\build.make src/CMakeFiles/main2.dir/build
-.PHONY : main2/fast
 
 cmake.obj: cmake.cpp.obj
 .PHONY : cmake.obj
 
 # target to build an object file
 cmake.cpp.obj:
-	cd /d D:\Desktop\github\camke-doc\build && $(MAKE) $(MAKESILENT) -f src\CMakeFiles\main.dir\build.make src/CMakeFiles/main.dir/cmake.cpp.obj
-	cd /d D:\Desktop\github\camke-doc\build && $(MAKE) $(MAKESILENT) -f src\CMakeFiles\main2.dir\build.make src/CMakeFiles/main2.dir/cmake.cpp.obj
+	cd /d D:\Desktop\github\camke-doc-1\build && $(MAKE) $(MAKESILENT) -f src\CMakeFiles\main.dir\build.make src/CMakeFiles/main.dir/cmake.cpp.obj
 .PHONY : cmake.cpp.obj
 
 cmake.i: cmake.cpp.i
@@ -157,8 +142,7 @@ cmake.i: cmake.cpp.i
 
 # target to preprocess a source file
 cmake.cpp.i:
-	cd /d D:\Desktop\github\camke-doc\build && $(MAKE) $(MAKESILENT) -f src\CMakeFiles\main.dir\build.make src/CMakeFiles/main.dir/cmake.cpp.i
-	cd /d D:\Desktop\github\camke-doc\build && $(MAKE) $(MAKESILENT) -f src\CMakeFiles\main2.dir\build.make src/CMakeFiles/main2.dir/cmake.cpp.i
+	cd /d D:\Desktop\github\camke-doc-1\build && $(MAKE) $(MAKESILENT) -f src\CMakeFiles\main.dir\build.make src/CMakeFiles/main.dir/cmake.cpp.i
 .PHONY : cmake.cpp.i
 
 cmake.s: cmake.cpp.s
@@ -166,8 +150,7 @@ cmake.s: cmake.cpp.s
 
 # target to generate assembly for a file
 cmake.cpp.s:
-	cd /d D:\Desktop\github\camke-doc\build && $(MAKE) $(MAKESILENT) -f src\CMakeFiles\main.dir\build.make src/CMakeFiles/main.dir/cmake.cpp.s
-	cd /d D:\Desktop\github\camke-doc\build && $(MAKE) $(MAKESILENT) -f src\CMakeFiles\main2.dir\build.make src/CMakeFiles/main2.dir/cmake.cpp.s
+	cd /d D:\Desktop\github\camke-doc-1\build && $(MAKE) $(MAKESILENT) -f src\CMakeFiles\main.dir\build.make src/CMakeFiles/main.dir/cmake.cpp.s
 .PHONY : cmake.cpp.s
 
 # Help Target
@@ -179,7 +162,6 @@ help:
 	@echo ... edit_cache
 	@echo ... rebuild_cache
 	@echo ... main
-	@echo ... main2
 	@echo ... cmake.obj
 	@echo ... cmake.i
 	@echo ... cmake.s
@@ -194,6 +176,6 @@ help:
 # No rule that depends on this can have commands that come from listfiles
 # because they might be regenerated.
 cmake_check_build_system:
-	cd /d D:\Desktop\github\camke-doc\build && $(CMAKE_COMMAND) -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles\Makefile.cmake 0
+	cd /d D:\Desktop\github\camke-doc-1\build && $(CMAKE_COMMAND) -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles\Makefile.cmake 0
 .PHONY : cmake_check_build_system
 

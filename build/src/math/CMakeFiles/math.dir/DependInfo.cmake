@@ -8,7 +8,7 @@ set(CMAKE_DEPENDS_LANGUAGES
 
 # The set of dependency files which are needed:
 set(CMAKE_DEPENDS_DEPENDENCY_FILES
-  "D:/Desktop/github/camke-doc/src/math/math.cpp" "src/math/CMakeFiles/math.dir/math.cpp.obj" "gcc" "src/math/CMakeFiles/math.dir/math.cpp.obj.d"
+  "D:/Desktop/github/camke-doc-1/src/math/math.cpp" "src/math/CMakeFiles/math.dir/math.cpp.obj" "gcc" "src/math/CMakeFiles/math.dir/math.cpp.obj.d"
   )
 
 # Targets to which this target links which contain Fortran sources.

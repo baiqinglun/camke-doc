@@ -56,10 +56,10 @@ RM = D:\CMake\bin\cmake.exe -E rm -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = D:\Desktop\github\camke-doc
+CMAKE_SOURCE_DIR = D:\Desktop\github\camke-doc-1
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = D:\Desktop\github\camke-doc\build
+CMAKE_BINARY_DIR = D:\Desktop\github\camke-doc-1\build
 
 #=============================================================================
 # Targets provided globally by CMake.
@@ -86,9 +86,9 @@ rebuild_cache/fast: rebuild_cache
 
 # The main all target
 all: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start D:\Desktop\github\camke-doc\build\CMakeFiles D:\Desktop\github\camke-doc\build\\CMakeFiles\progress.marks
+	$(CMAKE_COMMAND) -E cmake_progress_start D:\Desktop\github\camke-doc-1\build\CMakeFiles D:\Desktop\github\camke-doc-1\build\\CMakeFiles\progress.marks
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\Makefile2 all
-	$(CMAKE_COMMAND) -E cmake_progress_start D:\Desktop\github\camke-doc\build\CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start D:\Desktop\github\camke-doc-1\build\CMakeFiles 0
 .PHONY : all
 
 # The main clean target
@@ -129,19 +129,6 @@ main/fast:
 .PHONY : main/fast
 
 #=============================================================================
-# Target rules for targets named main2
-
-# Build rule for target.
-main2: cmake_check_build_system
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\Makefile2 main2
-.PHONY : main2
-
-# fast build rule for target.
-main2/fast:
-	$(MAKE) $(MAKESILENT) -f src\CMakeFiles\main2.dir\build.make src/CMakeFiles/main2.dir/build
-.PHONY : main2/fast
-
-#=============================================================================
 # Target rules for targets named math
 
 # Build rule for target.
@@ -163,7 +150,6 @@ help:
 	@echo ... edit_cache
 	@echo ... rebuild_cache
 	@echo ... main
-	@echo ... main2
 	@echo ... math
 .PHONY : help
 

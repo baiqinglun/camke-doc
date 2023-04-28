@@ -56,10 +56,10 @@ RM = D:\CMake\bin\cmake.exe -E rm -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = D:\Desktop\github\camke-doc
+CMAKE_SOURCE_DIR = D:\Desktop\github\camke-doc-1
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = D:\Desktop\github\camke-doc\build
+CMAKE_BINARY_DIR = D:\Desktop\github\camke-doc-1\build
 
 #=============================================================================
 # Targets provided globally by CMake.
@@ -86,14 +86,14 @@ rebuild_cache/fast: rebuild_cache
 
 # The main all target
 all: cmake_check_build_system
-	cd /d D:\Desktop\github\camke-doc\build && $(CMAKE_COMMAND) -E cmake_progress_start D:\Desktop\github\camke-doc\build\CMakeFiles D:\Desktop\github\camke-doc\build\src\math\\CMakeFiles\progress.marks
-	cd /d D:\Desktop\github\camke-doc\build && $(MAKE) $(MAKESILENT) -f CMakeFiles\Makefile2 src/math/all
-	$(CMAKE_COMMAND) -E cmake_progress_start D:\Desktop\github\camke-doc\build\CMakeFiles 0
+	cd /d D:\Desktop\github\camke-doc-1\build && $(CMAKE_COMMAND) -E cmake_progress_start D:\Desktop\github\camke-doc-1\build\CMakeFiles D:\Desktop\github\camke-doc-1\build\src\math\\CMakeFiles\progress.marks
+	cd /d D:\Desktop\github\camke-doc-1\build && $(MAKE) $(MAKESILENT) -f CMakeFiles\Makefile2 src/math/all
+	$(CMAKE_COMMAND) -E cmake_progress_start D:\Desktop\github\camke-doc-1\build\CMakeFiles 0
 .PHONY : all
 
 # The main clean target
 clean:
-	cd /d D:\Desktop\github\camke-doc\build && $(MAKE) $(MAKESILENT) -f CMakeFiles\Makefile2 src/math/clean
+	cd /d D:\Desktop\github\camke-doc-1\build && $(MAKE) $(MAKESILENT) -f CMakeFiles\Makefile2 src/math/clean
 .PHONY : clean
 
 # The main clean target
@@ -102,22 +102,22 @@ clean/fast: clean
 
 # Prepare targets for installation.
 preinstall: all
-	cd /d D:\Desktop\github\camke-doc\build && $(MAKE) $(MAKESILENT) -f CMakeFiles\Makefile2 src/math/preinstall
+	cd /d D:\Desktop\github\camke-doc-1\build && $(MAKE) $(MAKESILENT) -f CMakeFiles\Makefile2 src/math/preinstall
 .PHONY : preinstall
 
 # Prepare targets for installation.
 preinstall/fast:
-	cd /d D:\Desktop\github\camke-doc\build && $(MAKE) $(MAKESILENT) -f CMakeFiles\Makefile2 src/math/preinstall
+	cd /d D:\Desktop\github\camke-doc-1\build && $(MAKE) $(MAKESILENT) -f CMakeFiles\Makefile2 src/math/preinstall
 .PHONY : preinstall/fast
 
 # clear depends
 depend:
-	cd /d D:\Desktop\github\camke-doc\build && $(CMAKE_COMMAND) -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles\Makefile.cmake 1
+	cd /d D:\Desktop\github\camke-doc-1\build && $(CMAKE_COMMAND) -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles\Makefile.cmake 1
 .PHONY : depend
 
 # Convenience name for target.
 src/math/CMakeFiles/math.dir/rule:
-	cd /d D:\Desktop\github\camke-doc\build && $(MAKE) $(MAKESILENT) -f CMakeFiles\Makefile2 src/math/CMakeFiles/math.dir/rule
+	cd /d D:\Desktop\github\camke-doc-1\build && $(MAKE) $(MAKESILENT) -f CMakeFiles\Makefile2 src/math/CMakeFiles/math.dir/rule
 .PHONY : src/math/CMakeFiles/math.dir/rule
 
 # Convenience name for target.
@@ -126,7 +126,7 @@ math: src/math/CMakeFiles/math.dir/rule
 
 # fast build rule for target.
 math/fast:
-	cd /d D:\Desktop\github\camke-doc\build && $(MAKE) $(MAKESILENT) -f src\math\CMakeFiles\math.dir\build.make src/math/CMakeFiles/math.dir/build
+	cd /d D:\Desktop\github\camke-doc-1\build && $(MAKE) $(MAKESILENT) -f src\math\CMakeFiles\math.dir\build.make src/math/CMakeFiles/math.dir/build
 .PHONY : math/fast
 
 math.obj: math.cpp.obj
@@ -134,7 +134,7 @@ math.obj: math.cpp.obj
 
 # target to build an object file
 math.cpp.obj:
-	cd /d D:\Desktop\github\camke-doc\build && $(MAKE) $(MAKESILENT) -f src\math\CMakeFiles\math.dir\build.make src/math/CMakeFiles/math.dir/math.cpp.obj
+	cd /d D:\Desktop\github\camke-doc-1\build && $(MAKE) $(MAKESILENT) -f src\math\CMakeFiles\math.dir\build.make src/math/CMakeFiles/math.dir/math.cpp.obj
 .PHONY : math.cpp.obj
 
 math.i: math.cpp.i
@@ -142,7 +142,7 @@ math.i: math.cpp.i
 
 # target to preprocess a source file
 math.cpp.i:
-	cd /d D:\Desktop\github\camke-doc\build && $(MAKE) $(MAKESILENT) -f src\math\CMakeFiles\math.dir\build.make src/math/CMakeFiles/math.dir/math.cpp.i
+	cd /d D:\Desktop\github\camke-doc-1\build && $(MAKE) $(MAKESILENT) -f src\math\CMakeFiles\math.dir\build.make src/math/CMakeFiles/math.dir/math.cpp.i
 .PHONY : math.cpp.i
 
 math.s: math.cpp.s
@@ -150,7 +150,7 @@ math.s: math.cpp.s
 
 # target to generate assembly for a file
 math.cpp.s:
-	cd /d D:\Desktop\github\camke-doc\build && $(MAKE) $(MAKESILENT) -f src\math\CMakeFiles\math.dir\build.make src/math/CMakeFiles/math.dir/math.cpp.s
+	cd /d D:\Desktop\github\camke-doc-1\build && $(MAKE) $(MAKESILENT) -f src\math\CMakeFiles\math.dir\build.make src/math/CMakeFiles/math.dir/math.cpp.s
 .PHONY : math.cpp.s
 
 # Help Target
@@ -176,6 +176,6 @@ help:
 # No rule that depends on this can have commands that come from listfiles
 # because they might be regenerated.
 cmake_check_build_system:
-	cd /d D:\Desktop\github\camke-doc\build && $(CMAKE_COMMAND) -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles\Makefile.cmake 0
+	cd /d D:\Desktop\github\camke-doc-1\build && $(CMAKE_COMMAND) -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles\Makefile.cmake 0
 .PHONY : cmake_check_build_system
 

@@ -1,8 +1,8 @@
-# Install script for directory: D:/Desktop/github/camke-doc/src/math
+# Install script for directory: D:/Desktop/github/camke-doc-1/src/math
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
-  set(CMAKE_INSTALL_PREFIX "C:/Program Files (x86)/cmake")
+  set(CMAKE_INSTALL_PREFIX "C:/Program Files (x86)/test")
 endif()
 string(REGEX REPLACE "/$" "" CMAKE_INSTALL_PREFIX "${CMAKE_INSTALL_PREFIX}")
 
