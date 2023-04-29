@@ -312,3 +312,41 @@ message("PATH=$ENV{PATH}")
 set(ENV{GIT_PATH} "/user/bin")
 message(STATUS "GIT_PATH=$ENV{GIT_PATH}")
 ```
+
+## 6、CMake变量之缓存变量
+
+1. 缓存变量可以缓存到CMakeCache.txt中，缓存变量的作用于是全局的。
+2. 和普通变量相比，缓存变量可以存储值的类型
+
+```cmake
+set(<variable> <value>... CACHE <type> <docstring> [FORCE])
+```
+
+1. 第一个变量：变量名；
+2. 第二个变量：变量值；
+3. 第三个变量：固定的CMAKE关键字（表示定义的是缓存变量）；
+4. 第四个变量：必选参数type类型；
+5. 第五个变量：描述信息；
+
+type类型
+
+1. BOOL：BOOL 类型的变量值如果是 ON、TRUE、1 则被评估为真，如果是 OFF、FALSE、0 则被评估为假
+2. FILEPATH：文件路径
+3. PATH：文件夹路径
+4. STRING：字符串
+5. INTERNAL：内部缓存变量不会对用户可见，一般是项目为了缓存某种内部信息时才使用。内部缓存变量默认是 FORCE 的。FORCE 关键字代表每次运行都强制更新缓存变量的值，如果没有该关键字，当再次运行 cmake 的时候，cmake 将使用 CMakeCache.txt 文件中缓存的值，而不是重新进行评估。
+
+由于BOOL类型的缓存变量使用频率高，所以cmake单独定义一个函数（option）来定义BOOL缓存变量
+
+```cmake
+option(<variable> "<help_text>" [value])
+```
+
+第一个参数是变量的名字，第二个参数是提供帮助信息的字符串，可以为空字符串。 initialValue 是可选参数，代表缓存变量的值，如果没有提供，那该缓存变量的值默认为 OFF。
+
+```cmake
+option(optVar helpString [initialValue])
+set(optVar initialValue CACHE BOOL helpString)
+```
+
+两者等价
