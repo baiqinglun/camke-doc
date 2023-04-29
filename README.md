@@ -295,3 +295,20 @@ set(shellScript [=[
 ```cmake
 unset(CPR_TOP_DIR)
 ```
+
+## 5、CMake变量之环境变量
+
+cmake的环境变量不会影响系统的环境变量，但可以和系统的环境变量交互。
+
+```cmake
+# 此文件后缀是cmake的脚本文件，可通过一下命令在命令行中执行
+# cmake -P .\005.cmake
+
+# 获取系统变量
+message(STATUS "PATH=$ENV{PATH}")
+message("PATH=$ENV{PATH}")
+
+# 定义环境变量
+set(ENV{GIT_PATH} "/user/bin")
+message(STATUS "GIT_PATH=$ENV{GIT_PATH}")
+```
