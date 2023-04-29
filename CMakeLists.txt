@@ -10,4 +10,6 @@ project(test
 list(APPEND CMAKE_MESSAGE_CONTEXT       "test")
 list(APPEND CMAKE_MODULE_PATH           "${CMAKE_CURRENT_SOURCE_DIR}/cmake")
 
+set(IS_BUILD_TEST ON CACHE BOOL "is build test" FORCE)
+
 add_subdirectory(src)

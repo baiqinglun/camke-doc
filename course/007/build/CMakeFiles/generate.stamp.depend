@@ -1,0 +1,24 @@
+# CMake generation dependency list for this directory.
+D:/CMake/share/cmake-3.26/Modules/CMakeCInformation.cmake
+D:/CMake/share/cmake-3.26/Modules/CMakeCXXInformation.cmake
+D:/CMake/share/cmake-3.26/Modules/CMakeCommonLanguageInclude.cmake
+D:/CMake/share/cmake-3.26/Modules/CMakeGenericSystem.cmake
+D:/CMake/share/cmake-3.26/Modules/CMakeInitializeConfigs.cmake
+D:/CMake/share/cmake-3.26/Modules/CMakeLanguageInformation.cmake
+D:/CMake/share/cmake-3.26/Modules/CMakeRCInformation.cmake
+D:/CMake/share/cmake-3.26/Modules/CMakeSystemSpecificInformation.cmake
+D:/CMake/share/cmake-3.26/Modules/CMakeSystemSpecificInitialize.cmake
+D:/CMake/share/cmake-3.26/Modules/Compiler/CMakeCommonCompilerMacros.cmake
+D:/CMake/share/cmake-3.26/Modules/Compiler/MSVC-C.cmake
+D:/CMake/share/cmake-3.26/Modules/Compiler/MSVC-CXX.cmake
+D:/CMake/share/cmake-3.26/Modules/Compiler/MSVC.cmake
+D:/CMake/share/cmake-3.26/Modules/Platform/Windows-MSVC-C.cmake
+D:/CMake/share/cmake-3.26/Modules/Platform/Windows-MSVC-CXX.cmake
+D:/CMake/share/cmake-3.26/Modules/Platform/Windows-MSVC.cmake
+D:/CMake/share/cmake-3.26/Modules/Platform/Windows.cmake
+D:/CMake/share/cmake-3.26/Modules/Platform/WindowsPaths.cmake
+D:/Desktop/github/camke-doc-2/course/007/CMakeLists.txt
+D:/Desktop/github/camke-doc-2/course/007/build/CMakeFiles/3.26.0-rc1/CMakeCCompiler.cmake
+D:/Desktop/github/camke-doc-2/course/007/build/CMakeFiles/3.26.0-rc1/CMakeCXXCompiler.cmake
+D:/Desktop/github/camke-doc-2/course/007/build/CMakeFiles/3.26.0-rc1/CMakeRCCompiler.cmake
+D:/Desktop/github/camke-doc-2/course/007/build/CMakeFiles/3.26.0-rc1/CMakeSystem.cmake

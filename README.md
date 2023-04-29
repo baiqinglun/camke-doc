@@ -126,7 +126,7 @@ add_executable(main2 cmake.cpp)
 
 ![image-20230425012511410](https://test-123456-md-images.oss-cn-beijing.aliyuncs.com/img/image-20230425012511410.png)
 
-## 3、Cmake Targets
+## 3、CMake Targets
 
 ### 3.1 构建简单的Targets
 
@@ -328,13 +328,15 @@ set(<variable> <value>... CACHE <type> <docstring> [FORCE])
 4. 第四个变量：必选参数type类型；
 5. 第五个变量：描述信息；
 
-type类型
+### 6.1 type类型
 
 1. BOOL：BOOL 类型的变量值如果是 ON、TRUE、1 则被评估为真，如果是 OFF、FALSE、0 则被评估为假
 2. FILEPATH：文件路径
 3. PATH：文件夹路径
 4. STRING：字符串
 5. INTERNAL：内部缓存变量不会对用户可见，一般是项目为了缓存某种内部信息时才使用。内部缓存变量默认是 FORCE 的。FORCE 关键字代表每次运行都强制更新缓存变量的值，如果没有该关键字，当再次运行 cmake 的时候，cmake 将使用 CMakeCache.txt 文件中缓存的值，而不是重新进行评估。
+
+### 6.2 option
 
 由于BOOL类型的缓存变量使用频率高，所以cmake单独定义一个函数（option）来定义BOOL缓存变量
 
@@ -350,3 +352,162 @@ set(optVar initialValue CACHE BOOL helpString)
 ```
 
 两者等价
+
+### 6.3 CMakeCache中缓存变量
+
+普通变量适用于变量的值相对固定，而且只在某一个很小的作用域生效的场景。
+
+缓存变量适用于其值可以随时更改，作用域为全局的情况。经常在 CMake 中定义缓存变量，给一个默认值，如果用户想要更改缓存变量的值，可以通过 cmake -D 的形式去更改。
+
+比如我们这里定义个IS_BUILD_TEST缓存变量，如果后面不加FORCE，则只能通过 cmake -D形式区更改
+
+```cmake
+set(IS_BUILD_TEST ON CACHE BOOL "is build test" FORCE)
+```
+
+在CMakeCache.txt文件中输出
+
+![输出](https://test-123456-md-images.oss-cn-beijing.aliyuncs.com/img/20230429195324.png)
+
+## 7、CMake变量之作用域
+
+- CMake中使用add_subdirectory()或定义一个函数都可以产生新的作用域，3.25版本开始，可以使用block()在任何位置产生新的作用域。
+- 在定义普通变量时，如果没有PARENT_SCOPE选项，该变量的作用域就在当前的CMakeLists.txt中或者当前的函数，或者当前的block中。
+
+### 7.1 add_subdirectory作用域
+
+构建命令
+
+```cmake
+cmake -S . -B build
+```
+
+目录结构
+
+![image-20230429201215529](https://test-123456-md-images.oss-cn-beijing.aliyuncs.com/img/image-20230429201215529.png)
+
+`sub/CMakeLists.txt`中的A没有使用PARENT_SCOPE情况
+
+```cmake
+# sub/CMakeLists.txt
+cmake_minimum_required(VERSION 3.25)
+
+set(A "aaa")
+
+message(STATUS "sub A=${A}")
+```
+
+```cmake
+# CMakeLists.txt
+cmake_minimum_required(VERSION 3.25)
+
+project(test)
+
+add_subdirectory(sub)
+
+message(STATUS "top A=${A}")
+```
+
+![image-20230429201354557](https://test-123456-md-images.oss-cn-beijing.aliyuncs.com/img/image-20230429201354557.png)
+
+top中打印不出来
+
+
+
+`sub/CMakeLists.txt`中的A使用PARENT_SCOPE情况
+
+```cmake
+cmake_minimum_required(VERSION 3.25)
+
+set(A "aaa" PARENT_SCOPE)
+
+message(STATUS "sub A=${A}")
+```
+
+![image-20230429201434223](https://test-123456-md-images.oss-cn-beijing.aliyuncs.com/img/image-20230429201434223.png)
+
+
+
+### 7.2 函数产生的作用域
+
+```cmake
+function(test007)
+    set(B "bbb")
+    message(STATUS "test007 A=${A}")
+    message(STATUS "test007 B=${B}")
+endfunction(test007)
+
+test007()
+
+message(STATUS "top A=${A}")
+message(STATUS "top B=${B}")
+```
+
+![image-20230429202217822](https://test-123456-md-images.oss-cn-beijing.aliyuncs.com/img/image-20230429202217822.png)
+
+这里的作用域效果和c++语言一样，函数内部的可以访问外部的，外部的访问不了函数内部的。
+
+> 这里需要注意别忘记调用函数
+
+### 7.3 block产生的作用域
+
+需要cmake版本大于3.25
+
+示例1：
+
+```cmake
+set(x 1)
+block()
+    set(x 2)
+    set(y 3)
+    message(STATUS "x=${x}")
+    message(STATUS "y=${y}")
+endblock()
+
+message(STATUS "top x=${x}")
+message(STATUS "top y=${y}")
+```
+
+![image-20230429202705389](https://test-123456-md-images.oss-cn-beijing.aliyuncs.com/img/image-20230429202705389.png)
+
+内部的变量和外部不冲突
+
+示例2：
+
+```cmake
+set(x 1)
+set(y 3)
+block()
+    # 这里出了作用域才生效
+    set(x 2 PARENT_SCOPE)
+    unset(y PARENT_SCOPE)
+    message(STATUS "x=${x}") # 所以这里打印的还是x=1
+    message(STATUS "y=${y}") # 这时y还没有被取消设置，y=3
+endblock()
+
+message(STATUS "top x=${x}")
+message(STATUS "top y=${y}")
+```
+
+![image-20230429203055300](https://test-123456-md-images.oss-cn-beijing.aliyuncs.com/img/image-20230429203055300.png)
+
+示例3：
+
+```cmake
+set(x 1)
+set(z 5)
+block(PROPAGATE x z) # 立即生效
+    set(x 2)
+    set(y 3)
+    unset(z)
+    message(STATUS "x=${x}")
+    message(STATUS "y=${y}")
+    message(STATUS "z=${z}")
+endblock()
+
+message(STATUS "top x=${x}")
+message(STATUS "top y=${y}")
+message(STATUS "top z=${z}")
+```
+
+![image-20230429203556568](https://test-123456-md-images.oss-cn-beijing.aliyuncs.com/img/image-20230429203556568.png)
