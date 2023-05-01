@@ -511,3 +511,198 @@ message(STATUS "top z=${z}")
 ```
 
 ![image-20230429203556568](https://test-123456-md-images.oss-cn-beijing.aliyuncs.com/img/image-20230429203556568.png)
+
+## 8、CMake 变量总结
+
+通过前面三讲关于 CMake 变量的学习，我们已经对变量的基础知识非常熟悉了，本讲我们对 CMake 变量做一个总结。把一些 CMake 变量的异常行为做一个说明。
+
+首先我们来看看普通变量和缓存变量同名会发生什么呢？
+
+- 如果使用 option() 命令设置缓存变量之前已经存在同名的普通变量了，会发生什么？反之呢？
+- 如果使用 set() 命令设置缓存变量之前已经存在同名的普通变量了，会发生什么呢？反之呢？存在 INTERNAL 或者 FORCE 关键字呢？
+
+接着我们辨析一下如下 CMake 代码：
+
+```cmake
+unset(foo)
+set(foo)
+set(foo "")
+```
+
+- 如果要将一个变量的值设置为空字符串，请使用第三行的方式。
+
+除了在 CMakeLists.txt 中定义缓存变量，我们还有其他方式定义缓存变量吗？
+
+```shell
+cmake -D myVar:type=someValue ...
+```
+
+- 使用上述 cmake 命令 -D 的方式定义缓存变量，只需要第一次运行时指定就行了，如果每次都指定，该缓存变量的值也每次都会更新。
+- 可以使用多个 -D 指定多个缓存变量
+- 如果 -D 设置一个忽略类型的缓存变量，在 CMakeLists.txt 中也定义了一个同名的缓存变量，并指定类型为 FILEPATH 或者 PATH，那从不同的目录运行 cmake 会有什么不同？
+
+我们可以使用 cmake 命令 -D 的方式定义缓存变量，那有没有类似方式取消缓存变量的定义呢？
+
+```shell
+cmake -U 'help*' -U foo ...
+```
+
+- 支持通配符 * 和 ?
+
+我们再来通过 CMake 图形化界面工具加深对 CMake 变量的理解：
+
+- cmake-gui
+- ccmake
+- 高级变量
+  ```cmake
+  mark_as_advanced([CLEAR|FORCE] var1 [var2...])
+  ```
+  - CLEAR：不标记为高级变量
+  - FORCE：标记为高级变量
+  - 如果这两个关键字都没有，那只有在该变量从未标记过高级变量或非高级变量时才将其标记为高级变量
+- Grouped 选项，前缀相同的变量组合在一起
+
+最后我们看看如何打印变量的值。
+
+```cmake
+set(myVar HiThere)
+message("The value of myVar = ${myVar}\nAnd this "
+"appears on the next line")
+```
+
+- message() 命令，后续会详细讲解其用法，本讲只需要会简单的使用即可。
+
+## 9、[CMake字符串](https://cmake.org/cmake/help/latest/command/string.html)
+
+使用字符串功能来处理文本字符串
+
+```cmake
+Search and Replace
+  string(FIND <string> <substring> <out-var> [...])
+  string(REPLACE <match-string> <replace-string> <out-var> <input>...)
+  string(REGEX MATCH <match-regex> <out-var> <input>...)
+  string(REGEX MATCHALL <match-regex> <out-var> <input>...)
+  string(REGEX REPLACE <match-regex> <replace-expr> <out-var> <input>...)
+
+Manipulation
+  string(APPEND <string-var> [<input>...])
+  string(PREPEND <string-var> [<input>...])
+  string(CONCAT <out-var> [<input>...])
+  string(JOIN <glue> <out-var> [<input>...])
+  string(TOLOWER <string> <out-var>)
+  string(TOUPPER <string> <out-var>)
+  string(LENGTH <string> <out-var>)
+  string(SUBSTRING <string> <begin> <length> <out-var>)
+  string(STRIP <string> <out-var>)
+  string(GENEX_STRIP <string> <out-var>)
+  string(REPEAT <string> <count> <out-var>)
+
+Comparison
+  string(COMPARE <op> <string1> <string2> <out-var>)
+
+Hashing
+  string(<HASH> <out-var> <input>)
+
+Generation
+  string(ASCII <number>... <out-var>)
+  string(HEX <string> <out-var>)
+  string(CONFIGURE <string> <out-var> [...])
+  string(MAKE_C_IDENTIFIER <string> <out-var>)
+  string(RANDOM [<option>...] <out-var>)
+  string(TIMESTAMP <out-var> [<format string>] [UTC])
+  string(UUID <out-var> ...)
+
+JSON
+  string(JSON <out-var> [ERROR_VARIABLE <error-var>]
+         {GET | TYPE | LENGTH | REMOVE}
+         <json-string> <member|index> [<member|index> ...])
+  string(JSON <out-var> [ERROR_VARIABLE <error-var>]
+         MEMBER <json-string>
+         [<member|index> ...] <index>)
+  string(JSON <out-var> [ERROR_VARIABLE <error-var>]
+         SET <json-string>
+         <member|index> [<member|index> ...] <value>)
+  string(JSON <out-var> [ERROR_VARIABLE <error-var>]
+         EQUAL <json-string1> <json-string2>)
+```
+
+
+
+### 9.1 字符串查找
+
+- 在 inputString 中查找 subString，将查找到的索引存在 outVar 中，索引从 0 开始。
+- 如果没有 REVERSE 选项，则保存第一个查找到的索引，否则保存最后一个查找到的索引。
+- 如果没有找到则保存 -1。
+
+需要注意的是，string(FIND) 将所有字符串都作为 ASCII 字符，outVar 中存储的索引也会以字节为单位计算，因此包含多字节字符的字符串可能会导致意想不到的结果。
+
+```cmake
+string(FIND "abcdefgbcd" "bcd" fwdIndex)
+string(FIND "abcdefgbcd" "bcd" revIndex REVERSE)
+# fwdIndex=1
+# revIndex=7
+message("fwdIndex=${fwdIndex}\nrevIndex=${revIndex}")
+```
+
+![image-20230501163613287](https://test-123456-md-images.oss-cn-beijing.aliyuncs.com/img/image-20230501163613287.png)
+
+### 9.2 字符串替换
+
+- 将 input 中所有匹配 matchString 的都用 replaceWith 替换，并将结果保存到 outVar 中。
+- 如果有多个 input，它们是直接连接在一起的，没有任何分隔符。
+  - 这有时可能会有问题，所以通常建议只提供一个 input 字符串。
+
+```cmake
+string(REPLACE "abc" "cdd" outString abc-abc-abc)
+message("outString=${outString}")
+```
+
+![image-20230501163620674](https://test-123456-md-images.oss-cn-beijing.aliyuncs.com/img/image-20230501163620674.png)
+
+还可以使用正则表达式（cmake自定义正则表达式）查找
+
+### 9.3 其他操作
+
+1. `string(LENGTH <string> <output variable>)` - 获取字符串的长度并将其存储到输出变量中。
+2. `string(SUBSTRING <string> <offset> <length> <output variable>)` - 从字符串中提取一个子字符串，并将其存储在输出变量中。
+3. `string(REPLACE <match string> <replace string> <output variable> <input string>)` - 在输入字符串中查找匹配字符串，并将其替换为替换字符串。
+4. `string(TOUPPER <input string> <output variable>)` - 将输入字符串转换为大写，并将其存储在输出变量中。
+5. `string(TOLOWER <input string> <output variable>)` - 将输入字符串转换为小写，并将其存储在输出变量中。
+
+代码演示
+
+```cmake
+set(my_string "Hello, World!")
+string(LENGTH ${my_string} string_length)
+string(SUBSTRING ${my_string} 0 5 substring)
+string(REPLACE "Hello" "Goodbye" \ my_new_string ${my_string})
+string(TOUPPER ${my_string} upper_case)
+string(TOLOWER ${my_string} lower_case)
+```
+
+![image-20230501164736996](https://test-123456-md-images.oss-cn-beijing.aliyuncs.com/img/image-20230501164736996.png)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
